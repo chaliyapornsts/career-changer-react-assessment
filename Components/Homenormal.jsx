@@ -1,47 +1,34 @@
 import React, { useState } from 'react'
 import Layout from './Layout'
-import Homeuser from './Homeuser';
-import Homeadmin from './Homeadmin';
-/* import Button from './Button' */
+import Homeadmin from './Homeadmin'
+import Homeuser from './Homeuser'
 
 function Homenormal() {
-  /* const {employee, setEmployee} = useState(); */
-  const {sector, setSector} = useState();
+  const [sector, setSector] = useState("React - Assessment")
+
   const handleClick = (value) => {
-      setSector(value);
+    if (value === "Homeuser") {
+      setSector("Home - User Sector")
+    } else if (value === "Homeadmin") {
+      setSector("Home - Admin Sector")
+    }
   }
+
   return (
-    <div>
     <Layout>
-    <h1>
-        Generation Thailand<br /> React - Assessment
-    </h1>
-    <h1>{sector === "user"
-                ? "Home - User Sector"
-                : sector === "admin"
-                ? "Home - Admin Sector"
-                : "React Assessment"}</h1>
-    {/* <Button/> */}
-    <button onClick={() => handleClick("Homeuser")}>
+      <h1>
+        Generation Thailand<br /> {sector}
+      </h1>
+      <button onClick={() => handleClick("Homeuser")}>
         User Home Sector
-    </button>
-    <button onClick={() => handleClick("Homeadmin")}>
+      </button>
+      <button onClick={() => handleClick("Homeadmin")}>
         Admin Home Sector
-    </button>
-    {/* {sector === "Homeuser" && <Homeuser />}
-    {sector === "Homeadmin" && <Homeadmin />} */}
-    <Nun choice = {sector} />
+      </button>
+      {sector === "Homeadmin" && <Homeadmin />}
+      {sector === "Homeuser" && <Homeuser />}
     </Layout>
-    </div>
   )
 }
-    function Nun (props) {
-      if(props.choice === "Homeadmin") {
-        return <Homeadmin />;
-      } else if (props.choice === "Homeuser") {
-        return <Homeuser />;
-      } else {
-        return <p>nothing</p>
-      }
-    }
+
 export default Homenormal

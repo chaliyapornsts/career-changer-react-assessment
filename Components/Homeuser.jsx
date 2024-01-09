@@ -1,14 +1,18 @@
 import React from 'react'
-import Layout from './Layout'
-/* import Button from './Button' */
 
 function Homeuser() {
   return (
-    <Layout>
-      <h1>Generation Thailand<br /> Home - User Sector</h1>
-
-    </Layout>
+    <div>
+      <form>
+          <label htmlFor="create">Create User Here</label>
+          <input type="text" name="name" placeholder="Name" />
+          <input type="text" name="lastname" placeholder="Last Name" />
+          <input type="text" name="position" placeholder="Position" />
+          <button> Save</button>
+        </form>
+      </div>
   )
 }
 
 export default Homeuser
+
